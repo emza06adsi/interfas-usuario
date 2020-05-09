@@ -12,16 +12,34 @@ class Lista extends React.Component{
             loading: true,
             error: null,
             data: undefined,
-            pedido:new Array()
+            pedido:new Array(),
+            producto:undefined
         }
         this.handleClick = this.handleClick.bind(this)
     }
  
-    handleClick(event){
-    console.log(this.props.productos[event.target.id])
+
+ async  handleClick(event){
+        this.setState({ producto:await this.props.productos[event.target.id]  })
+            try{
+            console.log(this.state.producto)
+            let $sumarCarrito=document.getElementById('sumarCarrito')
+            let $overlay=document.getElementById('overlay')
+            let $modal=document.getElementById('modal')
+            let $nombreProducto= document.getElementById('nombreProducto')
+            let $valorProducto=document.getElementById('valorProducto')
+            $nombreProducto.innerHTML=this.state.producto.pro_nombre
+            $valorProducto.innerHTML=this.state.producto.pro_valor
+            // console.log(this.state.producto.pro_nombre)
+            $modal.style.animation='modalIn .8s forwards'
+            $overlay.classList.add('active')
     
-    //   debugger  
-    }
+        }catch(error){
+            console.log(error)
+        }
+        
+    
+}
 
     ingresar(){
       let numero=-1
@@ -60,7 +78,7 @@ class Lista extends React.Component{
             
                 {this.ingresar()}
             
-                <Unidad />
+                <Unidad  producto={this.state.producto}/>
                
                 </div>
         )               
