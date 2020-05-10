@@ -54,12 +54,12 @@ class Lista extends React.Component{
                              </section>
                              <section className="lista-info">
     
-                                <div className="lista-info_data"> 
+                                <section className="lista-info_data"> 
                                      <p>{data.pro_nombre}</p>
                                     <p>$:{data.pro_valor}</p>
                                         <button id={numero} onClick={this.handleClick}>carrito</button>
                                     
-                                </div>
+                                </section>
 
                             </section>
                         </section>

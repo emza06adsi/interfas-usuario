@@ -21,8 +21,12 @@
 
 }
 .lista-info{
+    
     /* background: magenta; */
     flex: 1;
+}
+.lista-info_data p{
+margin: 0px;
 }
 
 .lista-info_data{
