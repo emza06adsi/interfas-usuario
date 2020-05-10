@@ -17,7 +17,14 @@
     position: sticky;
     top: 0;
     background: #003946;
-    height: 3rem;
+    height:4rem;
+}
+.header-opsiones{
+    color: white;
+    display: flex;
+}
+.header-opsiones div h1{
+    color: white;
 }
 .main{
     /* background-color: wheat; */
