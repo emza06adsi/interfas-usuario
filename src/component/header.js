@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/header.css'
-import '../../node_modules/bootstrap/dist/css/bootstrap.css'
+// import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 class Header extends React.Component{
 
@@ -15,17 +15,12 @@ class Header extends React.Component{
                             </p>
                         </div>
                         <div className="header-opsiones_input">
-                            <div class="col-auto">
-                                <label
-                                     class="sr-only"
-                                    for="inlineFormInputGroup">
-                                        Username
-                                </label>
-                                <div class="input-group mb-2">
-                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username"/>
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                        <img src="https://img.icons8.com/windows/16/000000/search.png"/>
+                            <div className="col-auto">
+                                <div className="input-group">
+                                    <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Que buscas?"/>
+                                    <div className="input-group-prepend">
+                                        <div >
+                                        <img src="https://img.icons8.com/windows/32/000000/search.png"/>
                                         </div>
                                     </div>
                                 </div>
