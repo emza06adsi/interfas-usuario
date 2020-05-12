@@ -1,5 +1,7 @@
-import React from 'react'
-import './styles/unidad.css'
+import React from 'react';
+import './styles/unidad.css';
+import { connect } from 'react-redux';
+// import reducers from '../reducers/index'
 var cantidad=1
 class Unidad extends React.Component{
 
@@ -8,7 +10,8 @@ class Unidad extends React.Component{
 
         this.state = {
             cantidad:1,
-            valor:undefined
+            valor:undefined,
+            productos:[]
         }
         this.handleClick = this.handleClick.bind(this)
         // this.new=this.new(this)
@@ -35,6 +38,7 @@ class Unidad extends React.Component{
     }
     
     render(){
+        // console.log(this.props)
         return(
             <React.Fragment>
 
@@ -70,6 +74,11 @@ class Unidad extends React.Component{
     }
 
 }
-export default Unidad
+
+const mapStateToProps = (reducers)=>{
+    return reducers.productosReducer;
+}
+
+export default connect(mapStateToProps,{/* Actions */})(Unidad)
 
 

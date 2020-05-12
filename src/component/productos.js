@@ -2,7 +2,8 @@ import React from 'react'
 import PageLoading from '../component/pageLoading'
 import Lista from '../component/lista'
 import api from '../app'
-
+import { connect } from 'react-redux';
+import * as  usuariosActions from '../actions/productosActions'
 class Productos extends React.Component{
 
     constructor(props) {
@@ -16,7 +17,11 @@ class Productos extends React.Component{
         }
     }
     componentDidMount(){
-     this.fetchData()
+        
+        this.props.traertTodos() 
+        
+        // console.log(this.props.trerTodos)
+         this.fetchData()
     }
 
     fetchData = async () => {
@@ -35,24 +40,27 @@ class Productos extends React.Component{
             this.setState({ loading: false, error: error })
             
         }
-        
+                
     }
 
     
     render(){
+        console.log(this.props)
+
         if (this.state.loading === true) {
             return <PageLoading/>
         }else if(this.state.error){
             return (<h1>datas</h1>);
             // return `Eror: ${this.state.error.message}`;
           }    
-        return(
+          console.log(this.props)
+          return(
             <React.Fragment>
                    
                     <main className="main">
                         <article className="container-producto">
-                        {console.log("s")}                            
-                            <Lista productos={this.state.data} />
+                                                   
+                            <Lista productos={this.props.productos} />
 
                         </article>
                     </main>
@@ -62,4 +70,8 @@ class Productos extends React.Component{
     }
 }
 
-export default Productos;
+
+const mapStateToProps = (reducers)=>{
+    return reducers.productosReducer;
+}
+export default connect(mapStateToProps,usuariosActions)(Productos);
