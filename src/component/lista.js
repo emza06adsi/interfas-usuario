@@ -3,6 +3,7 @@ import './styles/lista.css'
 import api from '../app'
 import unidad from './unidad'                  
 import Unidad from './unidad'
+
 class Lista extends React.Component{
 
     constructor(props) {
@@ -33,7 +34,7 @@ class Lista extends React.Component{
             // console.log(this.state.producto.pro_nombre)
             $modal.style.animation='modalIn .8s forwards'
             $overlay.classList.add('active')
-    
+                
         }catch(error){
             console.log(error)
         }

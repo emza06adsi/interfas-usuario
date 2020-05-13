@@ -8,6 +8,12 @@ import {Provider} from 'react-redux'
 import reducers from './reducers/index';
 import reduxThunk from 'redux-thunk'
 
+// let data=[]
+// data.push(45) 
+// sessionStorage.setItem("datos",JSON.stringify(data))
+// // let a = JSON.parse()
+// console.log(sessionStorage.key(0))
+
 const store=createStore(
   reducers,//todos los reducers
     {},//estado inicial

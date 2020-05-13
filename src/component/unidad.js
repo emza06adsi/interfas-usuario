@@ -3,6 +3,8 @@ import './styles/unidad.css';
 import { connect } from 'react-redux';
 // import reducers from '../reducers/index'
 var cantidad=1
+var producto=[]
+var cantidadArray=[] 
 class Unidad extends React.Component{
 
     constructor(props) {
@@ -11,20 +13,26 @@ class Unidad extends React.Component{
         this.state = {
             cantidad:1,
             valor:undefined,
-            productos:[]
+            producto:undefined
         }
         this.handleClick = this.handleClick.bind(this)
-        // this.new=this.new(this)
+        this.agregarCarrito=this.agregarCarrito.bind(this)    // this.new=this.new(this)
     }
     async handleClick(){
-            this.setState({valor:await this.props.producto.pro_valor}) 
-            // this.setState({cantidad:await this.state.cantidad+1})
+            this.setState({valor:await this.props.producto.pro_valor,producto:await this.props.producto}) 
+            // this.set8State({cantidad:await this.state.cantidad+1})
+            // console.log(this.state.valor)
             cantidad++
-            console.log(cantidad*this.state.valor) 
+            // console.log(cantidad*this.state.valor) 
             document.getElementById('valorProducto').innerHTML=cantidad*this.state.valor
+            
             document.getElementById('cantidadProducto').innerHTML=cantidad
+            // compra.push()
+                
+            // this.setState{productos.pus}
             // document.getElementById('valorProducto').innerHTML=this.state.valor
-    }
+            
+        }
     
     agregarCarrito(){
     
@@ -33,8 +41,14 @@ class Unidad extends React.Component{
         let $modal=document.getElementById('modal')
         $modal.style.animation='modalOut .8s forwards'
         $overlay.classList.remove('active')
+        
+        producto.push(this.props.producto)
+        cantidadArray.push(cantidad)
+        sessionStorage.setItem("productos",JSON.stringify(producto))
+        sessionStorage.setItem("cantidades",JSON.stringify(cantidadArray))
         cantidad=1
         document.getElementById('cantidadProducto').innerHTML=cantidad
+        console.log(sessionStorage)
     }
     
     render(){
