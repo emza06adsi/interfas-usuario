@@ -6,6 +6,13 @@ class Carrito extends React.Component{
         
     }
 
+    cerrarmodal(){
+        document.getElementById("overlayy").classList.remove('active')
+        document.getElementById("modall").style.animation='modalOut .8s forwards'
+        
+        
+        
+    }
     compra(){
 
     }
@@ -15,24 +22,29 @@ class Carrito extends React.Component{
         <React.Fragment>
 
         <div className="overlayy" id="overlayy">
-            <section className="modall" id="modall">
+            <section className="modall" id="modall" >
 
                 <div >
 
                 <table id="customers">
                     <thead>
                     <tr>
-                        <th>producto</th>
-                        <th>valor</th>
-                        <th>cantidad</th>
-                        <th>v.c.</th>
+                        <th className="sticky">producto</th>
+                        <th className="sticky">valor</th>
+                        <th className="sticky">cantidad</th>
+                        <th className="sticky">v.c.</th>
                     </tr>
                     </thead>
                     <tbody className="tbody" id="tabla">
                         
                     </tbody>
                 </table>
-
+                <button className="btnModalCompra" onClick={this.cerrarmodal}>
+                    COMPRAR
+                </button>
+                <button className="btnModalVolver" onClick={this.cerrarmodal}>
+                    VOLVER
+                </button>
                 </div>
 
             </section>
