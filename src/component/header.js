@@ -13,8 +13,17 @@ class Header extends React.Component{
         $overlay.classList.add('active')        
         let cantidades=[]
         cantidades=JSON.parse(sessionStorage.getItem("cantidades"))
-        if(cantidades.length==0){
-            document.getElementById('tabla').innerHTML="no tenemos nada en carrito"
+        if(sessionStorage.length==0){
+            document.getElementById('tabla').innerHTML=`
+                    
+            <tr>
+            <td>no</td>
+            <td>tenemos</td>
+            <td>nada</td>
+            <td>en carrito</td>
+        </tr>
+
+            `
         }
         else{
             

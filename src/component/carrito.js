@@ -10,12 +10,8 @@ class Carrito extends React.Component{
         document.getElementById("overlayy").classList.remove('active')
         document.getElementById("modall").style.animation='modalOut .8s forwards'
         
-        
-        
     }
-    compra(){
-
-    }
+    
 
     render(){
        return(
@@ -39,12 +35,18 @@ class Carrito extends React.Component{
                         
                     </tbody>
                 </table>
-                <button className="btnModalCompra" onClick={this.cerrarmodal}>
-                    COMPRAR
-                </button>
-                <button className="btnModalVolver" onClick={this.cerrarmodal}>
-                    VOLVER
-                </button>
+
+                <div className="divCompra">                
+                    <input className="" placeholder="ubicación"> 
+
+                    </input>
+                    <button className="btnModalCompra" onClick={this.cerrarmodal}>
+                        COMPRAR
+                    </button>
+                    <button className="btnModalVolver" onClick={this.cerrarmodal}>
+                        VOLVER
+                    </button>
+                </div>
                 </div>
 
             </section>

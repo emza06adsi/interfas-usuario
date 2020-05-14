@@ -112,6 +112,39 @@
   /* will-change: tra; */
 }
 
+.divCompra{
+  padding: 10px;
+}
+.divCompra input{
+  border-width: 0px;
+  border: 2px solid #7dc800;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  text-decoration: none;
+    /* text-rendering: auto;
+    
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: -internal-light-dark-color(white, black);
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px; */
+    
+
+
+}
 @keyframes modalIn {
     0% {
       transform: translateY(-3000px);
