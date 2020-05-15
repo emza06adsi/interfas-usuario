@@ -1,5 +1,7 @@
 import React from 'react'
 import './styles/carrito.css'
+import axios from 'axios' 
+
 class Carrito extends React.Component{
 
     componentDidMount(){
@@ -12,6 +14,39 @@ class Carrito extends React.Component{
         
     }
     
+    hacerPedido(){
+           let  productos =[],cantidad =[],ubicacion=""; 
+           productos= JSON.parse(sessionStorage.getItem("productos"))
+           cantidad= JSON.parse(sessionStorage.getItem("cantidades"))
+           var date = new Date();
+           var minuto=date.getMinutes()
+           var hora= date.getHours()
+           var dia = date.getDate();
+           var mes = date.getMonth();
+           var yyy = date.getFullYear();
+           var fecha_formateada = yyy + '-' + mes + '-' + dia +" "+hora+":"+minuto;
+           
+            let pedido={
+               fecha:fecha_formateada,
+               ubicacion:document.getElementById("ubicación").value+document.getElementById("contacto").value,
+               productos:[]
+            }
+
+            for (let i=0;i<cantidad.length;i++){
+                pedido.productos.push(productos[i])
+                pedido.productos[i].producto_cantidad=cantidad[i]
+            }
+            axios.post('http://localhost:3001/api/pedidos/crearPedidos', {
+                pedido
+              })
+              .then(function (response) {
+                console.log(response);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+        //    debugger
+    }
 
     render(){
        return(
@@ -37,10 +72,13 @@ class Carrito extends React.Component{
                 </table>
 
                 <div className="divCompra">                
-                    <input className="" placeholder="ubicación"> 
+                    <input className="" placeholder="ubicación" id="ubicación"> 
 
                     </input>
-                    <button className="btnModalCompra" onClick={this.cerrarmodal}>
+                    <input className="" placeholder="telefono de contacto" id="contacto" type="number"> 
+
+                    </input>
+                    <button className="btnModalCompra" onClick={this.hacerPedido} >
                         COMPRAR
                     </button>
                     <button className="btnModalVolver" onClick={this.cerrarmodal}>
