@@ -13,6 +13,12 @@ class Carrito extends React.Component{
         document.getElementById("modall").style.animation='modalOut .8s forwards'
         
     }
+
+    cerrarModal(){
+        document.getElementById("overlayyy").classList.remove('active')
+        document.getElementById("modalll").style.animation='modalOut .8s forwards'
+        
+    }
     
     hacerPedido(){
            let  productos =[],cantidad =[],ubicacion=""; 
@@ -28,7 +34,8 @@ class Carrito extends React.Component{
            
             let pedido={
                fecha:fecha_formateada,
-               ubicacion:document.getElementById("ubicación").value+document.getElementById("contacto").value,
+               ubicacion:document.getElementById("ubicación").value,
+               telefono:document.getElementById("contacto").value,
                productos:[]
             }
 
@@ -36,11 +43,18 @@ class Carrito extends React.Component{
                 pedido.productos.push(productos[i])
                 pedido.productos[i].producto_cantidad=cantidad[i]
             }
+            
             axios.post('http://localhost:3001/api/pedidos/crearPedidos', {
                 pedido
               })
               .then(function (response) {
-                console.log(response);
+                document.getElementById("overlayy").classList.remove('active')
+                document.getElementById("modall").style.animation='modalOut .8s forwards'
+                sessionStorage.removeItem("cantidades")
+                sessionStorage.removeItem("productos")
+                document.getElementById("overlayyy").classList.add('active')
+                document.getElementById("modalll").style.animation='modalInt .8s forwards'
+        
               })
               .catch(function (error) {
                 console.log(error);
@@ -86,6 +100,20 @@ class Carrito extends React.Component{
                     </button>
                 </div>
                 </div>
+
+            </section>
+
+        </div>
+
+
+        <div className="overlayy" id="overlayyy" onClick={this.cerrarModal}>
+            <section className="modall" id="modalll" >
+
+                <div>
+                    <h1>Gracias por tu pedido en unos minutos estaremos en la puerta de tu casa</h1>
+                </div>
+
+                
 
             </section>
 
