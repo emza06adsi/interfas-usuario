@@ -4,6 +4,7 @@ import Lista from '../component/lista'
 import api from '../app'
 import { connect } from 'react-redux';
 import * as  usuariosActions from '../actions/productosActions'
+import FilterResults from 'react-filter-search';
 class Productos extends React.Component{
 
     constructor(props) {
@@ -13,7 +14,8 @@ class Productos extends React.Component{
         this.state = {
             loading: true,
             error: null,
-            data: undefined
+            data: undefined,
+            value: ''
         }
     }
     componentDidMount(){
@@ -22,7 +24,8 @@ class Productos extends React.Component{
         
         // console.log(this.props.trerTodos)
          this.fetchData()
-    }
+
+        }
 
     fetchData = async () => {
         this.setState({ loading: true, error: null })
@@ -56,7 +59,6 @@ class Productos extends React.Component{
           console.log(this.props)
           return(
             <React.Fragment>
-                   
                     <main className="main">
                         <article className="container-producto">
                                                    

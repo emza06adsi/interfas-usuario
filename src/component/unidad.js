@@ -57,7 +57,7 @@ class Unidad extends React.Component{
             <React.Fragment>
 
                 <div className="overlay" id="overlay">
-                    <section className="modal " id="modal">
+                    <section className="modal" id="modal">
                         <div>
                             <h1 id="nombreProducto"></h1>
                             <section className="modal-container">
@@ -76,7 +76,6 @@ class Unidad extends React.Component{
                                 <button className="btnModal" id="sumarCarrito" onClick={this.agregarCarrito}>Agregar</button>
                             </div>
                         </div>
-
 
                     </section>
 

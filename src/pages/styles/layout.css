@@ -29,7 +29,7 @@
      display: flex;
     height: inherit; 
     overflow-y: scroll;       
-    flex-direction: column;
+        flex-direction: column;
 white-space: nowrap;
 
 background-color: #d8d8d875;
@@ -54,6 +54,7 @@ lex-direction: column;
     height: inherit;
     background-color: #d8d8d875;    
     overflow-y: scroll; 
+    /* display: none; */
 }
 
 .footer{

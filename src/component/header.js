@@ -1,7 +1,8 @@
 import React from 'react';
 import './styles/header.css'
 import Carrito from './carrito'
-
+import { connect } from 'react-redux';
+import * as  usuariosActions from '../actions/productosActions'
 // import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 class Header extends React.Component{
@@ -72,6 +73,11 @@ class Header extends React.Component{
        
     }
 
+    cambio(){
+        // this.props.productos=[]
+        debugger
+    }
+
     render(){
         return(
             <React.Fragment>
@@ -84,11 +90,11 @@ class Header extends React.Component{
                         </div>
                         <div className="header-opsiones_input">
                             <div className="col-auto">
-                                <div className="input-group">
+                                <div className="input-group" >
                                     <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Que buscas?"/>
                                     <div className="input-group-prepend" >
                                         <div>
-                                        <img src="https://img.icons8.com/windows/32/000000/search.png"/>
+                                        <img src="https://img.icons8.com/windows/32/000000/search.png" onClick={()=>{this.cambio()}}/>
                                         </div>
                                     </div>
                                 </div>
@@ -107,4 +113,7 @@ class Header extends React.Component{
         )
     }
 } 
-export default Header;
+const mapStateToProps = (reducers)=>{
+    return reducers.productosReducer;
+}
+export default connect(mapStateToProps,usuariosActions)( Header);

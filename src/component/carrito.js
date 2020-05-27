@@ -17,7 +17,7 @@ class Carrito extends React.Component{
     cerrarModal(){
         document.getElementById("overlayyy").classList.remove('active')
         document.getElementById("modalll").style.animation='modalOut .8s forwards'
-        
+        window.location.reload()
     }
     
     hacerPedido(){
