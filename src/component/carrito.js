@@ -21,7 +21,13 @@ class Carrito extends React.Component{
     }
     
     hacerPedido(){
-           let  productos =[],cantidad =[],ubicacion=""; 
+        if(document.getElementById("ubicación").value =="" ||
+        document.getElementById("contacto").value ==""
+        ){
+            alert("direccion o contacto no valido")
+        }  else if(document.getElementById("ubicación").value !=""||
+                  document.getElementById("contacto").value !=""){
+            let  productos =[],cantidad =[],ubicacion=""; 
            productos= JSON.parse(sessionStorage.getItem("productos"))
            cantidad= JSON.parse(sessionStorage.getItem("cantidades"))
            var date = new Date();
@@ -44,7 +50,7 @@ class Carrito extends React.Component{
                 pedido.productos[i].producto_cantidad=cantidad[i]
             }
             
-            axios.post('http://localhost:3001/api/pedidos/crearPedidos', {
+            axios.post('https://api-a-tu-servicio.herokuapp.com/api/pedidos/crearPedidos', {
                 pedido
               })
               .then(function (response) {
@@ -59,6 +65,9 @@ class Carrito extends React.Component{
               .catch(function (error) {
                 console.log(error);
               });
+        }
+        
+        
         //    debugger
     }
 

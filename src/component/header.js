@@ -91,12 +91,12 @@ class Header extends React.Component{
                         <div className="header-opsiones_input">
                             <div className="col-auto">
                                 <div className="input-group" >
-                                    <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Que buscas?"/>
+                                    {/* <input type="text" className="form-control" id="inlineFormInputGroup" placeholder="Que buscas?"/>
                                     <div className="input-group-prepend" >
                                         <div>
                                         <img src="https://img.icons8.com/windows/32/000000/search.png" onClick={()=>{this.cambio()}}/>
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>
