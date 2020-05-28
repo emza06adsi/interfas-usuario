@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/unidad.css';
 import { connect } from 'react-redux';
 // import reducers from '../reducers/index'
-var cantidad=1
+var cantidad=0
 var producto=[]
 var cantidadArray=[] 
 class Unidad extends React.Component{
@@ -18,8 +18,14 @@ class Unidad extends React.Component{
         this.handleClick = this.handleClick.bind(this)
         this.agregarCarrito=this.agregarCarrito.bind(this)    // this.new=this.new(this)
     }
-    async handleClick(){
-            this.setState({valor:await this.props.producto.pro_valor,producto:await this.props.producto}) 
+    async handleClick(event){
+        // debugger
+    let value= event.target.value-1
+console.log(value)
+            this.setState({
+                valor:await this.props.productos[value].pro_valor,
+                producto:await this.props.productos[value]
+            }); 
             // this.set8State({cantidad:await this.state.cantidad+1})
             // console.log(this.state.valor)
             cantidad++
@@ -36,19 +42,25 @@ class Unidad extends React.Component{
     
     agregarCarrito(){
     
-        let $sumarCarrito=document.getElementById('sumarCarrito')
+        if (cantidad==0){
+           alert("no hay productos para agregr al carrito") 
+        }
+else if(cantidad!==0){
+    let $sumarCarrito=document.getElementById('sumarCarrito')
         let $overlay=document.getElementById('overlay')
         let $modal=document.getElementById('modal')
         $modal.style.animation='modalOut .8s forwards'
         $overlay.classList.remove('active')
         
-        producto.push(this.props.producto)
+        producto.push(this.state.producto)
         cantidadArray.push(cantidad)
         sessionStorage.setItem("productos",JSON.stringify(producto))
         sessionStorage.setItem("cantidades",JSON.stringify(cantidadArray))
-        cantidad=1
+        cantidad=0
         document.getElementById('cantidadProducto').innerHTML=cantidad
         console.log(sessionStorage)
+}
+    
     }
     
     render(){
@@ -57,16 +69,16 @@ class Unidad extends React.Component{
             <React.Fragment>
 
                 <div className="overlay" id="overlay">
-                    <section className="modal" id="modal">
+                    <section className="modal_" id="modal">
                         <div>
                             <h1 id="nombreProducto"></h1>
                             <section className="modal-container">
                                 <div className="producto-modal">
                                     <div className="producto-valor"> <p><strong>valor</strong></p> <p id="valorProducto"></p> </div> 
-                                    <div> <p><strong>cantidad</strong></p> <p id="cantidadProducto">1</p> </div>
+                                    <div> <p><strong>cantidad</strong></p> <p id="cantidadProducto">0</p> </div>
                                 </div>
                                  <div className="btnsumar">
-                                    <button onClick={this.handleClick}>
+                                    <button id="productobtn" onClick={this.handleClick}>
                                         +
                                     </button>
                                 </div>  

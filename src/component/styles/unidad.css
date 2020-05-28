@@ -19,7 +19,7 @@
     visibility:visible;
 }
 
-.modal{
+.modal_{
     /* background: rgb(0, 0, 0,.8); */
        width: 60%;
        text-align: center;
@@ -33,7 +33,9 @@
         border-radius:.5em ;
     
       }
-
+.modal_ h1{
+  font-size: 16px;
+}
 .btnModal{
   background: green;
 }
@@ -77,6 +79,9 @@ margin-top: 2%;
   width: 20%;
   padding: 5%;
   
+}
+.pesos{
+ display: flex;   
 }
 .btnsumar button{
   text-align: center;
