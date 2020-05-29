@@ -23,38 +23,13 @@ async function callApi(endpoint, options = {}) {
 
 const api = {
   tienda: {
-    listPedidosActivos() {
-      // return fetch('http://localhost:3001/api/pedidos/')
-      return callApi('/api/pedidos/pedido/activo');
-
-    },
-    listPedidosInactivos() {
-      // return fetch('http://localhost:3001/api/pedidos/')
-      return callApi('/api/pedidos/pedido/inactivos');
-    },
-    listClientes() {
-      // return fetch('http://localhost:3001/api/pedidos/')
-      return callApi('/api/user/');
-    }, listProductos() {
+    
+    
+     listProductos() {
       // return fetch('http://localhost:3001/api/pedidos/')
       return callApi('/api/tienda/');
-    }, listProductosPorId(id) {
-      // return fetch('http://localhost:3001/api/pedidos/')
-      return callApi(`/api/pedidos/${id}`);
     },
     
-    updateProductos(data) {
-      return callApi(`/api/tienda/`, {
-        method: 'PUT',
-        body: JSON.stringify(data),
-      });
-    },
-    logearUsuario(data) {
-      return callApi(`/auth/login`, {
-        method: 'post',
-        body: JSON.stringify(data),
-      });
-    },
     // Lo hubiera llamado `delete`, pero `delete` es un keyword en JavaScript asi que no es buena idea :P
     remove(badgeId) {
       return callApi(`/badges/${badgeId}`, {
