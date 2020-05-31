@@ -50,8 +50,9 @@ class Carrito extends React.Component{
                 pedido.productos[i].producto_cantidad=cantidad[i]
             }
             
-            axios.post('https://api-a-tu-servicio.herokuapp.com/api/pedidos/crearPedidos', {
-                pedido
+            axios.post('https://a-tu-servicio-api.herokuapp.com/api/pedidos/crearPedidos', {
+                 
+            pedido
               })
               .then(function (response) {
                 document.getElementById("overlayy").classList.remove('active')
