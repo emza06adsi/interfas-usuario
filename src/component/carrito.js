@@ -24,7 +24,7 @@ class Carrito extends React.Component{
         if(document.getElementById("ubicación").value =="" ||
         document.getElementById("contacto").value ==""
         ){
-            alert("direccion o contacto no valido")
+            alert("Direccion o contacto no valido")
         }  else if(document.getElementById("ubicación").value !=""||
                   document.getElementById("contacto").value !=""){
             let  productos =[],cantidad =[],ubicacion=""; 
@@ -88,7 +88,7 @@ class Carrito extends React.Component{
             //     console.log(error);
             //   });
             }else{
-                alert("no hay productos en el carrito") 
+                alert("No hay productos en el carrito") 
             }
             
             
@@ -111,10 +111,10 @@ class Carrito extends React.Component{
                 <table id="customers">
                     <thead>
                     <tr>
-                        <th className="sticky">producto</th>
-                        <th className="sticky">valor</th>
-                        <th className="sticky">cantidad</th>
-                        <th className="sticky">v.c.</th>
+                        <th className="sticky">Producto</th>
+                        <th className="sticky">Valor</th>
+                        <th className="sticky">Cantidad</th>
+                        <th className="sticky">V.C.</th>
                     </tr>
                     </thead>
                     <tbody className="tbody" id="tabla">
@@ -123,10 +123,10 @@ class Carrito extends React.Component{
                 </table>
 
                 <div className="divCompra">                
-                    <input className="" placeholder="ubicación" id="ubicación"> 
+                    <input className="" placeholder="Ubicación" id="ubicación"> 
 
                     </input>
-                    <input className="" placeholder="telefono de contacto" id="contacto" type="number"> 
+                    <input className="" placeholder="Telefono De Contacto" id="contacto" type="number"> 
 
                     </input>
                     <button className="btnModalCompra" onClick={this.hacerPedido} >
@@ -147,7 +147,7 @@ class Carrito extends React.Component{
             <section className="modall" id="modalll" >
 
                 <div>
-                    <h1>Gracias por tu pedido en unos minutos estaremos en la puerta de tu casa</h1>
+                    <h1>Gracias por tu pedido en unos minutos estaremos en la puerta de tu casa.</h1>
                 </div>
 
                 

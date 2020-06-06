@@ -52,7 +52,6 @@ else if(cantidad!==0){
         document.getElementById('cantidadProducto').innerHTML=cantidad
         console.log(sessionStorage)
 }
-    
     }
     
     render(){
@@ -66,8 +65,8 @@ else if(cantidad!==0){
                             <h1 id="nombreProducto"></h1>
                             <section className="modal-container">
                                 <div className="producto-modal">
-                                    <div className="producto-valor"> <p><strong>valor</strong></p> <p id="valorProducto"></p> </div> 
-                                    <div> <p><strong>cantidad</strong></p> <p id="cantidadProducto">0</p> </div>
+                                    <div className="producto-valor"> <p><strong>Valor</strong></p> <p id="valorProducto"></p> </div> 
+                                    <div> <p><strong>Cantidad</strong></p> <p id="cantidadProducto">0</p> </div>
                                 </div>
                                  <div className="btnsumar">
                                     <button id="productobtn" onClick={this.handleClick}>

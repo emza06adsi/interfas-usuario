@@ -60,7 +60,7 @@ function Lista(props) {
                 numero++
                 return(
                 
-                <section key={data.pro_id} className="lista">
+                <section key={data.pro_id} className    ="lista">
                     <section className="lista-img">
                         <img src={data.pro_imagen}></img>
                     </section>
@@ -69,7 +69,7 @@ function Lista(props) {
                         <section className="lista-info_data"> 
                             <p>{data.pro_nombre}</p>
                             <p>$:{data.pro_valor}</p>
-                            <button id={JSON.stringify(data)} onClick={handleClick}>carrito</button>
+                            <button id={JSON.stringify(data)} onClick={handleClick}>Carrito</button>
                         </section>
 
                     </section>
