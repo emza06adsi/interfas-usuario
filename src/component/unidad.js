@@ -19,24 +19,16 @@ class Unidad extends React.Component{
         this.agregarCarrito=this.agregarCarrito.bind(this)    // this.new=this.new(this)
     }
     async handleClick(event){
-        // debugger
-    let value= event.target.value-1
-console.log(value)
+
+    let valor=JSON.parse(event.target.value)
+    
             this.setState({
-                valor:await this.props.productos[value].pro_valor,
-                producto:await this.props.productos[value]
+                valor:await valor.pro_valor,
+                producto:await valor
             }); 
-            // this.set8State({cantidad:await this.state.cantidad+1})
-            // console.log(this.state.valor)
             cantidad++
-            // console.log(cantidad*this.state.valor) 
             document.getElementById('valorProducto').innerHTML=cantidad*this.state.valor
-            
             document.getElementById('cantidadProducto').innerHTML=cantidad
-            // compra.push()
-                
-            // this.setState{productos.pus}
-            // document.getElementById('valorProducto').innerHTML=this.state.valor
             
         }
     

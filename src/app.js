@@ -1,5 +1,4 @@
-const BASE_URL = 'https://a-tu-servicio-api.herokuapp.com/';
-
+const BASE_URL = 'https://api-a-tu-servicio.herokuapp.com';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const randomNumber = (min = 0, max = 1) =>
   Math.floor(Math.random() * (max - min + 1)) + min;

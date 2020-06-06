@@ -29,14 +29,17 @@ function Lista(props) {
    var state = {producto:undefined}
         
    async  function handleClick(event){
-        state.producto=await productos[event.target.id];
+
+  let $producto = JSON.parse(event.target.id)
+  
+  state.producto=await $producto;
         try{
             let $sumarCarrito=document.getElementById('sumarCarrito')
             let $overlay=document.getElementById('overlay')
             let $modal=document.getElementById('modal')
             let $nombreProducto= document.getElementById('nombreProducto')
             let $valorProducto=document.getElementById('valorProducto')
-            let $productobtn=document.getElementById('productobtn').value=JSON.stringify(state.producto.pro_id)
+            let $productobtn=document.getElementById('productobtn').value=JSON.stringify(state.producto)
             $nombreProducto.innerText=state.producto.pro_nombre
             $valorProducto.innerText=0
             $modal.style.animation='modalIn .8s forwards'
@@ -66,7 +69,7 @@ function Lista(props) {
                         <section className="lista-info_data"> 
                             <p>{data.pro_nombre}</p>
                             <p>$:{data.pro_valor}</p>
-                            <button id={numero} onClick={handleClick}>carrito</button>
+                            <button id={JSON.stringify(data)} onClick={handleClick}>carrito</button>
                         </section>
 
                     </section>

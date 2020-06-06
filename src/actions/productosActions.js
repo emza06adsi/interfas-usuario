@@ -1,7 +1,8 @@
 import axios from 'axios'
 export const traertTodos=   ()  =>async (dispatah)   =>  {
     
- const respuesta= await axios.get('https://a-tu-servicio-api.herokuapp.com/api/tienda/');
+
+ const respuesta= await axios.get('https://api-a-tu-servicio.herokuapp.com/api/tienda');
     // console.log(respuesta.data.body[0])    
      
     dispatah({

@@ -31,41 +31,68 @@ class Carrito extends React.Component{
            productos= JSON.parse(sessionStorage.getItem("productos"))
            cantidad= JSON.parse(sessionStorage.getItem("cantidades"))
            var date = new Date();
+           var segundo=date.getSeconds()
            var minuto=date.getMinutes()
            var hora= date.getHours()
            var dia = date.getDate();
            var mes = date.getMonth();
            var yyy = date.getFullYear();
-           var fecha_formateada = yyy + '-' + mes + '-' + dia +" "+hora+":"+minuto;
-           
+           var fecha_formateada = yyy + '-' + mes + '-' + dia +" "+hora+":"+minuto+":"+segundo;
+           console.log(fecha_formateada)
             let pedido={
                fecha:fecha_formateada,
                ubicacion:document.getElementById("ubicación").value,
                telefono:document.getElementById("contacto").value,
                productos:[]
             }
+            if(cantidad!=null){
+                for (let i=0;i<cantidad.length;i++){
+                    pedido.productos.push(productos[i])
+                    pedido.productos[i].producto_cantidad=cantidad[i]
+                }
 
-            for (let i=0;i<cantidad.length;i++){
-                pedido.productos.push(productos[i])
-                pedido.productos[i].producto_cantidad=cantidad[i]
+                fetch('https://api-a-tu-servicio.herokuapp.com/api/pedidos/crearPedidos/', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(pedido),
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    document.getElementById("overlayy").classList.remove('active')
+                        document.getElementById("modall").style.animation='modalOut .8s forwards'
+                        sessionStorage.removeItem("cantidades")
+                        sessionStorage.removeItem("productos")
+                        document.getElementById("overlayyy").classList.add('active')
+                        document.getElementById("modalll").style.animation='modalInt .8s forwards'
+                
+                  })
+                  .catch((error) => {
+                    console.error('Error:', error);
+                  });
+
+            //     axios.post('http://localhost:3001/api/pedidos/crearPedidos', {
+            //    pedido    
+            //   })    
+            //   .then(function (response) {
+            //     document.getElementById("overlayy").classList.remove('active')
+            //     document.getElementById("modall").style.animation='modalOut .8s forwards'
+            //     sessionStorage.removeItem("cantidades")
+            //     sessionStorage.removeItem("productos")
+            //     document.getElementById("overlayyy").classList.add('active')
+            //     document.getElementById("modalll").style.animation='modalInt .8s forwards'
+        
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+            }else{
+                alert("no hay productos en el carrito") 
             }
             
-            axios.post('https://a-tu-servicio-api.herokuapp.com/api/pedidos/crearPedidos', {
-                 
-            pedido
-              })
-              .then(function (response) {
-                document.getElementById("overlayy").classList.remove('active')
-                document.getElementById("modall").style.animation='modalOut .8s forwards'
-                sessionStorage.removeItem("cantidades")
-                sessionStorage.removeItem("productos")
-                document.getElementById("overlayyy").classList.add('active')
-                document.getElementById("modalll").style.animation='modalInt .8s forwards'
-        
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
+            
+            
         }
         
         
