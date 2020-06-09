@@ -3,7 +3,6 @@ import './styles/header.css'
 import Carrito from './carrito'
 import { connect } from 'react-redux';
 import * as  usuariosActions from '../actions/productosActions'
-// import '../../node_modules/bootstrap/dist/css/bootstrap.css'
 
 class Header extends React.Component{
 
@@ -21,8 +20,9 @@ class Header extends React.Component{
             <td>no</td>
             <td>tenemos</td>
             <td>nada</td>
-            <td>en carrito</td>
-        </tr>
+            <td>en </td>
+            <td> carrito</td>
+            </tr>
 
             `
         }
@@ -46,7 +46,13 @@ class Header extends React.Component{
                 <td>${productos[i].pro_valor}</td>
                 <td>${cantidades[i]}</td>
                 <td>${cantidades[i]*productos[i].pro_valor}</td>
-            </tr>
+                <td>
+                <button class="btnModalEliminar">
+                x
+                </button>
+
+                </td>
+                </tr>
 
                 `
                 total+=cantidades[i]*productos[i].pro_valor
@@ -56,6 +62,7 @@ class Header extends React.Component{
                     
                 <tr>
                     <th>TOTAL</th>
+                    <th></th>
                     <th></th>
                     <th></th>
                     <th>${total}</th>

@@ -62,7 +62,7 @@ function Lista(props) {
                 
                 <section key={data.pro_id} className    ="lista">
                     <section className="lista-img">
-                        <img src={data.pro_imagen}></img>
+                        <img src={data.pro_imagen} width="100%"></img>
                     </section>
                     <section className="lista-info">
     

@@ -82,7 +82,20 @@
     position: sticky;
     top: 0;
 }
-
+.btnModalEliminar{
+  text-align: center;
+  background: red;
+  padding: .1em .3em .4em;
+  border: none;
+  color: white;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: inset 0-.2em rgba(0, 0, 0,.2);
+  outline: 0;
+  transition: .2s;
+  /* will-change: tra; */
+}
 .btnModalCompra{
   text-align: center;
   background: #7dc800;

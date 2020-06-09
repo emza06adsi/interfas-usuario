@@ -115,6 +115,7 @@ class Carrito extends React.Component{
                         <th className="sticky">Valor</th>
                         <th className="sticky">Cantidad</th>
                         <th className="sticky">V.C.</th>
+                        <th className="sticky">x</th>
                     </tr>
                     </thead>
                     <tbody className="tbody" id="tabla">
