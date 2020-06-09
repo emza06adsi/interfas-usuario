@@ -142,8 +142,7 @@ class Carrito extends React.Component{
 
         </div>
 
-
-        <div className="overlayy" id="overlayyy" onClick={this.cerrarModal}>
+            <div className="overlayy" id="overlayyy" onClick={this.cerrarModal}>
             <section className="modall" id="modalll" >
 
                 <div>

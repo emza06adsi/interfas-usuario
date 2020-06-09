@@ -31,6 +31,15 @@ class Unidad extends React.Component{
             document.getElementById('cantidadProducto').innerHTML=cantidad
             
         }
+        cerrarmodal(){
+            cantidad=0
+            let $overlay=document.getElementById('overlay')
+            let $modal=document.getElementById('modal')
+            $modal.style.animation='modalOut .8s forwards'
+            $overlay.classList.remove('active')
+            document.getElementById('cantidadProducto').innerHTML=cantidad
+            
+        }
     
     agregarCarrito(){
     
@@ -77,6 +86,7 @@ else if(cantidad!==0){
 
                             <div className="modal-buttons">
                                 <button className="btnModal" id="sumarCarrito" onClick={this.agregarCarrito}>Agregar</button>
+                                <button className="btnModalVolver" onClick={this.cerrarmodal}>VOLVER</button>
                             </div>
                         </div>
 
