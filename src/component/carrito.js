@@ -48,9 +48,9 @@ class Carrito extends React.Component{
             if(cantidad!=null){
                 for (let i=0;i<cantidad.length;i++){
                     pedido.productos.push(productos[i])
-                    pedido.productos[i].producto_cantidad=cantidad[i]
+                    pedido.productos[i].pro_cantidad=cantidad[i]
                 }
-
+                    
                 fetch('https://api-a-tu-servicio.herokuapp.com/api/pedidos/crearPedidos/', {
                     method: 'POST', // or 'PUT'
                     headers: {
@@ -72,21 +72,6 @@ class Carrito extends React.Component{
                     console.error('Error:', error);
                   });
 
-            //     axios.post('http://localhost:3001/api/pedidos/crearPedidos', {
-            //    pedido    
-            //   })    
-            //   .then(function (response) {
-            //     document.getElementById("overlayy").classList.remove('active')
-            //     document.getElementById("modall").style.animation='modalOut .8s forwards'
-            //     sessionStorage.removeItem("cantidades")
-            //     sessionStorage.removeItem("productos")
-            //     document.getElementById("overlayyy").classList.add('active')
-            //     document.getElementById("modalll").style.animation='modalInt .8s forwards'
-        
-            //   })
-            //   .catch(function (error) {
-            //     console.log(error);
-            //   });
             }else{
                 alert("No hay productos en el carrito") 
             }
@@ -96,7 +81,7 @@ class Carrito extends React.Component{
         }
         
         
-        //    debugger
+        
     }
 
     render(){
@@ -115,7 +100,6 @@ class Carrito extends React.Component{
                         <th className="sticky">Valor</th>
                         <th className="sticky">Cantidad</th>
                         <th className="sticky">V.C.</th>
-                        <th className="sticky">x</th>
                     </tr>
                     </thead>
                     <tbody className="tbody" id="tabla">
@@ -165,25 +149,3 @@ class Carrito extends React.Component{
 }
  
 export default Carrito;
-
-
-
-
-{/* <div>
-<h1 id="nombreProducto"></h1>
-<section className="modal-container">
-    <div className="producto-modal">
-        <div className="producto-valor"> <p><strong>valor</strong></p> <p id="valorProducto"></p> </div> 
-        <div> <p><strong>cantidad</strong></p> <p id="cantidadProducto">1</p> </div>
-    </div>
-     <div className="btnsumar">
-        <button onClick={this.handleClick}>
-            +
-        </button>
-    </div>  
-</section>
-
-<div className="modal-buttons">
-    <button className="btnModal" id="sumarCarrito" onClick={this.agregarCarrito}>Agregar</button>
-</div>
-</div> */}

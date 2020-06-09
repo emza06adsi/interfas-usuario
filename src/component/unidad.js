@@ -86,7 +86,7 @@ else if(cantidad!==0){
 
                             <div className="modal-buttons">
                                 <button className="btnModal" id="sumarCarrito" onClick={this.agregarCarrito}>Agregar</button>
-                                <button className="btnModalVolver" onClick={this.cerrarmodal}>VOLVER</button>
+                                <button className="btnModalVolver" onClick={this.cerrarmodal}>No Agregar</button>
                             </div>
                         </div>
 

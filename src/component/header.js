@@ -4,8 +4,10 @@ import Carrito from './carrito'
 import { connect } from 'react-redux';
 import * as  usuariosActions from '../actions/productosActions'
 
+
 class Header extends React.Component{
 
+    
     modalCarrito (){
     let $overlay = document.getElementById('overlayy')
     let $modal= document.getElementById('modall')        
@@ -20,8 +22,8 @@ class Header extends React.Component{
             <td>no</td>
             <td>tenemos</td>
             <td>nada</td>
-            <td>en </td>
-            <td> carrito</td>
+            <td>en carrito </td>
+            
             </tr>
 
             `
@@ -39,21 +41,14 @@ class Header extends React.Component{
             totalp
              for(var i=0;i<cantidades.length;i++){  
                 
-                datosP+=`
-                    
+                datosP+=`                    
                 <tr>
                 <td><img src="${productos[i].pro_imagen}" width="35px"/></td>
                 <td>${productos[i].pro_valor}</td>
                 <td>${cantidades[i]}</td>
                 <td>${cantidades[i]*productos[i].pro_valor}</td>
-                <td>
-                <button class="btnModalEliminar">
-                x
-                </button>
-
-                </td>
+                
                 </tr>
-
                 `
                 total+=cantidades[i]*productos[i].pro_valor
             }
@@ -62,7 +57,6 @@ class Header extends React.Component{
                     
                 <tr>
                     <th>TOTAL</th>
-                    <th></th>
                     <th></th>
                     <th></th>
                     <th>${total}</th>
@@ -76,7 +70,7 @@ class Header extends React.Component{
         // <td>${productos[i].pro_valor}</td>
         // <td>${cantidades[i]}</td>
         // <td>${cantidades[i]*productos[i].pro_valor}</td>
-  
+
        
     }
 
