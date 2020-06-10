@@ -1,0 +1,163 @@
+.domiContainer{
+    /* padding: 10%; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.domiContainer p{
+    color: #075681;
+    font-size: 110%;
+}
+
+.domiContainer strong{
+    color: #075681;
+    font-size: 110%;
+}
+
+.domiContainer-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* background-color: #cb161b; */
+    border: 1px solid #003946;
+    width: 80%;
+    padding: 20px;
+    height: 20em;
+    border-radius: 25px;
+}
+
+.domiContainer-form_div{
+    display: flex;
+    flex-direction: column  ;
+    margin-top: 10px;
+}
+.domiContainer-form_div label{
+    
+    border-bottom: 1px solid #003946;
+}
+.domiContainer-form_div textarea{
+    height: 70px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid #7dc800;
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+}
+
+
+.domiContainer-form_div input{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid #7dc800;
+    background-color: transparent;
+    text-align: center;
+}
+
+.domiContainer-form_div-btn{
+    text-align: center;
+    background: #7dc800;
+    padding: .6em .8em .8em;
+    border: none;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset 0-.2em rgba(0, 0, 0,.2);
+    outline: 0;
+    transition: .2s;
+}
+
+.domiContainer-form_div-btnn{
+    text-align: center;
+    background: #ffc107;
+    padding: .6em .8em .8em;
+    border: none;
+    color: white;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: inset 0-.2em rgba(0, 0, 0,.2);
+    outline: 0;
+    transition: .2s;
+    /* will-change: tra; */
+  }
+
+
+  .domioverlay{
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.8s ease-in;
+    opacity: 0;
+    visibility:hidden;
+    
+   
+  }
+  .domioverlay.active{
+    opacity: 1;
+    visibility:visible;
+}
+.domimodal{
+    /* background: rgb(0, 0, 0,.8); */
+       width: 90%;
+       text-align: center;
+       /* display: flex; */
+       /* align-items: center; */
+       background-color: white;
+       /* justify-content: center; */
+       /* flex-direction: column-reverse; */
+        animation:domiModalOut .8s forwards;
+        /* padding: 1em; */
+        /* padding-top:0px ; */
+        padding-top:3em ;
+        padding-left:1em ;
+        padding-right:1em ;
+        padding-bottom:1em ;
+        border-radius:.5em ;
+        max-height: 20em;
+        overflow-y: scroll;
+      } 
+      
+
+      @keyframes domiModalIn {
+        0% {
+          transform: translateY(-3000px);
+        }
+        60% {
+          transform: translateY(25px);
+        }
+        75% {
+          transform: translateY(-10px);
+        }
+        90% {
+          transform: translateY(5px);
+        }
+      }
+    
+      /*@keyframes animationOut {*/
+      @keyframes domiModalOut {
+        0% {
+          transform: translateY(5px);
+        }
+        60% {
+          transform: translateY(-10px);
+        }
+        75% {
+          transform: translateY(25px);
+        }
+        100% {
+          transform: translateY(-3000px);
+        }
+      }
+      

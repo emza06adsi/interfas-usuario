@@ -1,10 +1,9 @@
 import React from 'react'
 import './styles/lista.css'
 import api from '../app'
-import unidad from './unidad'                  
 import Unidad from './unidad'
 import '../../node_modules/bootstrap/dist/css/bootstrap.css'
-
+import DomiServicio from './domiservicio' 
 function useSearchProductos(productos){
     
     const [query, setQuery] = React.useState('')
@@ -104,9 +103,8 @@ function Lista(props) {
                         </span>
                     </div>
                 </div>
-            
+                    <DomiServicio/>            
             </div>   
-            <h3> no renemos productos con este nombre </h3>
             </React.Fragment>
             )
         }
@@ -139,7 +137,7 @@ function Lista(props) {
 
                 <Unidad  producto={state.producto}/>
                 
-                                                                                                                                        
+                <DomiServicio/>                                                                                                                                         
                 </div>
         )               
 }
